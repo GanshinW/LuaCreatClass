@@ -49,3 +49,17 @@ end
 function refelect(classname, ...)
 	return classTable[classname](...)
 end
+
+--example
+Base = Class("Base")
+function Base:Test(  )
+	print(666)
+end
+
+Derive = Class("Derive",Base)
+
+d = Derive.new()
+
+d.Test() -- 666
+print(d.__cname)
+print(d.isType(Base))
