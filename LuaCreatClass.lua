@@ -1,5 +1,7 @@
+--Lua Creat Class
+
 classTable={}
-function class(classname, super)
+function Class(classname, super)
 	local cls = {}
 	if super then
 		cls = {}
@@ -27,21 +29,11 @@ function class(classname, super)
 		--        instance.class = cls
 		return instance
 	end
+
 	function cls.clsName()
 		return cls.__cname
 	end
-	function cls.isType(target)
-		if target == nil then
-			return false
-		end
-		if(target.__cname == cls.__cname) then
-			return true
-		end
-		if cls.super and cls.super.isType(target) then
-			return true
-		end
-		return false
-	end
+
 	classTable[classname]=cls.new
 	return cls
 end
@@ -62,4 +54,3 @@ d = Derive.new()
 
 d.Test() -- 666
 print(d.__cname)
-print(d.isType(Base))
