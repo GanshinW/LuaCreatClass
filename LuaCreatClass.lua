@@ -48,9 +48,20 @@ function Base:Test(  )
 	print(666)
 end
 
-Derive = Class("Derive",Base)
+Derive1 = Class("Derive1",Base)
+Derive2 = Class("Derive2",Base)
+function Derive2:Test()
+	print(222)
+end
+GrandDerive = Class("GrandDerive",Derive1)
 
-d = Derive.new()
+d1 = Derive1.new()
+d2 = Derive2.new()
+d3 = GrandDerive.new()
 
-d.Test() -- 666
-print(d.__cname)
+d1.Test() -- 666
+d2.Test() -- 222
+print(d2.__cname) --Derive2
+print(d1.super.__cname) --Base
+print(d2.super.__cname) --Base
+print(d3.super.__cname) --Derive1
