@@ -65,3 +65,5 @@ print(d2.__cname) --Derive2
 print(d1.super.__cname) --Base
 print(d2.super.__cname) --Base
 print(d3.super.__cname) --Derive1
+
+--test
